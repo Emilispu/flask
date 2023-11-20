@@ -1,0 +1,38 @@
+
+h4 {
+    color: darkblue;
+}
+
+body {
+    width: 80%;
+ 
+    margin: 0 auto; /*Centruoti puslapį ekrano horizontaliai*/
+}
+
+.content {
+    width: 80%;
+ 
+    margin: 0 auto; /*Centruoti puslapį ekrano horizontaliai*/
+}
+
+table {
+    width: 80%;
+ 
+    margin: 0 auto; /*Centruoti puslapį ekrano horizontaliai*/
+}
+
+.success{
+padding: 10px;
+margin-bottom: 15 px;
+color: white;
+border: 1px, darkgreen;
+background-color: #3cb371;
+}
+
+.error{
+padding: 10px;
+margin-bottom: 15 px;
+color: white;
+border: 1px, solid, darkred;
+background-color: #ff6347;
+}

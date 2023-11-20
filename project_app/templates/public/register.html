@@ -1,0 +1,45 @@
+
+{% extends 'public/templates/public_template.html' %}
+{% block title %} Vartotojo registracijos puslapis {% endblock %}
+{% block header %} Vartotojo registracijos puslapis {% endblock %}
+{% block content %}
+{% block topic_title %} Vartotojo registracijos puslapio antraštė {% endblock %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-12">
+
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{message}}</li>
+                    {% endfor%}
+                    </ul>
+                    {% endif %}
+                {% endwith %}
+
+
+                <form action="" method="POST">
+                    <table>
+                        <tr>
+                            <td>Prisijungimo vardas</td>
+                            <td><input type="text" name="login"></td>
+                        </tr>
+                        <tr>
+                            <td>Slaptazodis</td>
+                            <td><input type="password" name="password"></td>
+                        </tr>
+                        <tr>
+                            <td>Pakartokite slaptazodi</td>
+                            <td><input type="password" name="password2"></td>
+                        </tr>
+                        <tr>
+                            <td><a  href="{{url_for('login_page')}}">Registruotis</a> </td>
+                            <td><input type="submit" value="Registruotis"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

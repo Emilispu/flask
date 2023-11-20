@@ -1,0 +1,87 @@
+{% extends 'public/templates/public_template.html' %}
+{% block title %} URCIS - centro gyventojų registras  {% endblock %}
+
+{% block content %}
+
+
+<h4>Bendra apgyvendinimo informacija</h4>
+<hr>
+
+<table class="table">
+     <tr >
+        <th><h5>Viso centre apgyvendinta:</h5></th>
+        <th><h5><b>{{ viso }} </b></h5></th>
+        <th colspan="2" rowspan="2">
+
+
+            <div style="text-align: center;"><h5>Centro užpildymas procentais</h5></div>
+            <div class="progress">
+                <div  class="progress-bar" role="progressbar" style="width: {{x}}%" aria-valuenow={{x}}
+                     aria-valuemin="0" aria-valuemax="100">{{x}}
+                </div>
+            </div>
+
+        </th>
+    </tr>
+    <tr>
+        <th><h5>Iš jų šeimų:</h5></th>
+        <th><h5>{{ seima }}</h5></th>
+    </tr>
+    </table>
+<hr>
+<h4>Gyventojų skaičius pagal lytis</h4>
+<hr>
+<table class="table">
+    <tr>
+        <th><h5>Iš jų vyrų:</h5></th>
+        <th><h5>{{ vyras }}</h5></th>
+                <th colspan="2" rowspan="2">
+
+
+            <div style="text-align: center;"><h5>Apgyvendinimas pagal lytis</h5></div>
+<div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: {{y}}%" aria-valuenow={{y}} aria-valuemin="0" aria-valuemax={{x}}>Vyrai: {{y}} %</div>
+  <div class="progress-bar bg-success" role="progressbar" style="width: {{z}}%" aria-valuenow={{z}} aria-valuemin="0" aria-valuemax={{x}}>Moterys: {{z}} %</div>
+
+</div>
+    </tr>
+    <tr>
+        <th><h5>Iš jų moterų:</h5></th>
+        <th><h5>{{ moteris }}</h5></th>
+    </tr>
+
+</table>
+<hr>
+<h4>Gyventojų skaičius pagal šalis</h4>
+<hr>
+<table class="table">
+    <tr>
+        <th style="width: 350px;"><h5>Šalies pavadinimas</h5></th>
+        <th style="width: 200px;"><h5>Gyventojų skaičius</h5></th>
+        <th style="width: 350px;"><h5>Šalies pavadinimas</h5></th>
+        <th style="width: 200px;"><h5>Gyventojų skaičius</h5></th>
+
+    </tr>
+    {% set mid = who|length//2 %}
+    {% set column1 = who[:mid] %}
+    {% set column2 = who[mid:] %}
+
+
+    {% for i in range(b) %}
+    <tr>
+        <td>{{ column1[i][0] if i < column1|length else '' }}</td>
+        <td>{{ column1[i][1] if i < column1|length else '' }}</td>
+        <td>{{ column2[i][0] if i < column2|length else '' }}</td>
+        <td>{{ column2[i][1] if i < column2|length else '' }}</td>
+
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
+
+
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+  {% if current_user.user_name == "admin" %}
+{% extends 'admin/templates/admin_template.html' %}
+  {% endif %}
+    {% if current_user.user_name != "admin" %}
+{% extends 'public/templates/public_template.html' %}
+  {% endif %}
+{% block title %} URCIS - centro gyventojų registras  {% endblock %}
+
+{% block content %}
+
+    <h2>Įveskite informaciją ID kortelei generuoti:</h2>
+    <form method="POST" action="id_card">
+        <label for="bylos_id">Bylos ID:</label>
+        <input type="text" id="bylos_id" name="bylos_id"><br><br>
+
+        <label for="pasirinkimas">Pasirinkimas:</label>
+        <select id="pasirinkimas" name="pasirinkimas">
+            <option value="1">Laisvas judėjimas</option>
+            <option value="2">Alternatyva po teritoriją</option>
+            <option value="3">Sulaikytas</option>
+        </select><br><br>
+
+        <input type="submit" value="Generuoti PDF">
+    </form>
+
+{% endblock %}

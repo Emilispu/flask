@@ -1,0 +1,20 @@
+{% extends 'public/templates/public_template.html' %}
+    {% block title %} URCIS - centro gyventojų registras  {% endblock %}
+
+    {% block content %}
+<h4> Pagal užklausą, surasta: {{kiekis}} atitikmenų</h4><br>
+    <form method="POST">
+        <input type="text" name="zodis" placeholder="Įveskite paieškos žodį">
+        <input type="submit" value="Ieškoti">
+    </form>
+<br>
+        {% for x in  rezultatai%}
+
+             <div class="list-group">
+                 <a class="list-group-item list-group-item-action" href="{{ url_for('details', bylos_id=x.bylos_id) }}">
+                {{ x.bylos_id }} - {{ x.vpavarde }} - {{ x.statusas }} - {{ x.lytis }} - {{ x.gim_data }}</a>
+             </div>
+        {% endfor %}
+
+    {% endblock %}
+

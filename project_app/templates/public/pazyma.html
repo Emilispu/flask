@@ -1,0 +1,15 @@
+{% extends 'public/templates/public_template.html' %}
+{% block title %} URCIS - centro gyventojų registras  {% endblock %}
+
+{% block content %}
+
+    <h2>Įveskite informaciją pažymai generuoti:</h2>
+    <form method="POST" action="pazyma">
+        <label for="bylos_id">Bylos ID:</label>
+        <input type="text" id="bylos_id" name="bylos_id"><br><br>
+        <label for="kam">Kam adresuota:</label>
+        <input type="text" id="kam" name="kam"><br><br>
+        <input type="submit" value="Generuoti pažymą">
+    </form>
+
+{% endblock %}

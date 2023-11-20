@@ -1,0 +1,135 @@
+{% extends 'public/templates/public_template.html' %}
+    {% block title %} URCIS - centro gyventojų registras  {% endblock %}
+
+
+    {% block content %}
+    {% for c, q in get_flashed_messages(True) %}
+        <div class="flash {{c}}">{{q}}</div>
+    {% endfor %}
+
+    <div class="row"></div>
+    <div class="col"></div>
+
+        <form action="/duomenys" method="POST" enctype="multipart/form-data">
+
+            <table  class="table">
+
+  <tr>
+    <th valign="top">
+        <div class="form-group">
+          <label for="bylos_id">Bylos kodas</label>
+          <input type="text" class="form-control" name="bylos_id">
+        </div>
+    </th>
+    <th valign="top">
+         <div class="form-group">
+          <label for="bylos_eiga"> Bylos eiga</label><br>
+          <select id="pasirinkimas" class="form-select" name="pasirinkimas">
+            <option value="aktyvi">Aktyvi</option>
+            <option value="saugoma">Saugoma</option>
+          </select>
+        </div>
+    </th>
+    <th rowspan="4">
+
+
+
+        <div class="mb-3 mt-3">
+
+            <label for="nuotrauka"> Paveikslėlis: </label>
+            <input type="file" class="form-control" id="nuotrauka" name="nuotrauka">
+            <button type="submit" class="btn btn-success"> Ikelti</button>
+        </div>
+
+
+
+    </th>
+  </tr>
+  <tr>
+    <th colspan="2">
+        <div class="form-group">
+          <label for="vpavarde"> Vardas, pavardė</label>
+          <input type="text" class="form-control" name="vpavarde">
+        </div>
+    </th>
+  </tr>
+  <tr>
+    <th>
+        <div class="form-group">
+          <label for="birdday"> Gimimo data</label>
+          <input type="text" class="form-control" name="birdday">
+        </div>
+    </th>
+    <th>
+        <div class="form-group">
+          <label for="Lytis"> Lytis</label><br>
+          <select id="pasirinkimas2" class="form-select"  name="pasirinkimas2">
+            <option value="vyras">Vyras</option>
+            <option value="moteris">Moteris</option>
+          </select>
+        </div>
+    </th>
+  </tr>
+  <tr>
+    <th>
+        <div class="form-group">
+          <label for="Income"> Pristatymo data</label>
+          <input type="text" class="form-control" name="income">
+        </div>
+    </th>
+    <th>
+        <div class="form-group">
+          <label for="is_kur"> Kas pristatė</label>
+          <input type="text" class="form-control" name="is_kur">
+        </div>
+    </th>
+  </tr>
+  <tr>
+    <td>
+        <div class="form-group">
+          <label for="religija"><b> Religija</b></label>
+          <input type="text" class="form-control" name="religija">
+        </div>
+    </td>
+    <td>
+        <div class="form-group">
+          <label for="kalba"> <b>Kalba</b></label>
+          <input type="text" class="form-control" name="kalba">
+        </div>
+    </td>
+    <td rowspan="2">
+        <div class="form-group">
+                <label for="tekstas"> <b>Papildoma informacija</b></label>
+                <textarea class="form-control" name="tekstas" rows="3"></textarea>
+            </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <div class="form-group">
+          <label for="maitinimas"> <b>Maitinimas</b></label><br>
+          <select id="pasirinkimas3" class="form-select"  name="pasirinkimas3">
+            <option value="tradicinis">Tradicinis</option>
+            <option value="alternatyvus">Alternatyvus</option>
+            <option value="vegetarinis">Vegetarinis</option>
+          </select>
+        </div>
+    </td>
+    <td>
+        <div class="form-group">
+          <label for="isvyko"><b> Išvyko:</b></label>
+          <input type="text" class="form-control" name="isvyko">
+        </div>
+    </td>
+  </tr>
+</tbody>
+</table>
+<button type="submit" class="btn btn-outline-primary">Išsaugoti</button>
+
+        </form>
+
+    {% endblock %}
+
+</body>
+</html>
+

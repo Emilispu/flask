@@ -1,0 +1,55 @@
+{% extends 'public/templates/public_template.html' %}
+{% block title %} URCIS - centro gyventojų registras  {% endblock %}
+
+{% block content %}
+
+
+<h2>Bendra apgyvendinimo informacija</h2>
+<hr>
+<h4>Gyventojų skaičius pagal šalis</h4>
+<hr>
+<table class="table">
+    <tr>
+        <th style="width: 350px;"><h5>Šalies pavadinimas</h5></th>
+        <th style="width: 200px;"><h5>Gyventojų skaičius</h5></th>
+        <th style="width: 350px;"><h5>Šalies pavadinimas</h5></th>
+        <th style="width: 200px;"><h5>Gyventojų skaičius</h5></th>
+
+    </tr>
+    {% set mid = who|length//2 %}
+    {% set column1 = who[:mid] %}
+    {% set column2 = who[mid:] %}
+
+
+    {% for i in range(b) %}
+    <tr>
+        <td>{{ column1[i][0] if i < column1|length else '' }}</td>
+        <td>{{ column1[i][1] if i < column1|length else '' }}</td>
+        <td>{{ column2[i][0] if i < column2|length else '' }}</td>
+        <td>{{ column2[i][1] if i < column2|length else '' }}</td>
+
+    </tr>
+    {% endfor %}
+    <tr>
+        <th><h5>Viso centre apgyvendinta:</h5></th>
+        <th><h5>{{ a }} </h5></th>
+    </tr>
+    <tr>
+        <th><h5>Iš jų šeimų:</h5></th>
+        <th><h5>{{ seima }}</h5></th>
+    </tr>
+    <tr>
+        <th><h5>Iš jų vyrų:</h5></th>
+        <th><h5>{{ vyrai }}</h5></th>
+    </tr>
+    <tr>
+        <th><h5>Iš jų moterų:</h5></th>
+        <th><h5>{{ moteris }}</h5></th>
+    </tr>
+</table>
+
+{% endblock %}
+
+</body>
+</html>
+

@@ -1,0 +1,31 @@
+{% extends 'admin/templates/admin_template.html' %}
+    {% block title %} URCIS - centro gyventojų registras  {% endblock %}
+
+    {% block content %}
+
+<h3>Šalių kodai</h3>
+    <table class="table">
+        <tr>
+            <th><h5>Pavadinimas</h5></th>
+            <th><h5>Šalies kodas</h5></th>
+            <th><h5>Paskutinis bylos kodas</h5></th>
+            <th><h5>Country name</h5></th>
+        </tr>
+        {% for x in sarasas %}
+        <tr>
+            <td>{{x[0]}}</td>
+            <td>{{x[1]}}</td>
+            <td>{{x[2]}}</td>
+            <td>{{x[3]}}</td>
+        </tr>
+        {% endfor %}
+
+
+
+    </table>
+
+    {% endblock %}
+
+</body>
+</html>
+

@@ -1,0 +1,107 @@
+{% extends 'public/templates/public_template.html' %}
+{% block title %} URCIS - centro gyventojų registras  {% endblock %}
+
+{% block content %}
+    <form method="POST">
+        <input type="text" name="zodis" placeholder="Įveskite bylos kodą">
+        <input type="submit" value="Ieškoti">
+    </form>
+<h1>Informacija apie gyventoją</h1>
+
+<table class="table">
+
+    <tr>
+        <th valign="top">
+            <div class="form-group">
+                <label class="fs-4 fw-light">Bylos kodas: </label>
+                <label class="fs-3 fw-normal">{{ gyventojas.bylos_id }}</label>
+            </div>
+        </th>
+        <th valign="top">
+            <label class="fs-4 fw-light">Bylos eiga: </label>
+            <label class="fs-3 fw-normal" style="color:
+    {% if gyventojas.statusas == 'Aktyvi' %}
+        green;
+    {% endif %}
+    {% if gyventojas.statusas == 'Saugoma' %}
+        red;
+    {% endif %}
+">{{ gyventojas.statusas }}</label>
+
+        </th>
+        <th rowspan="4">
+
+
+            {% if gyventojas.nuotrauka %}
+            <img src="/uploaded_file/{{ gyventojas.nuotrauka }}" width="400">
+            {% else %}
+            {% if gyventojas.lytis == "Vyras" %}
+            <img src="/uploaded_file/male.jpg" width="400">
+            {% endif %}
+
+            {% if gyventojas.lytis == "Moteris" %}
+            <img src="/uploaded_file/female.jpg" width="400">
+            {% endif %}
+
+            {% endif %}
+
+
+        </th>
+    </tr>
+    <tr>
+        <th colspan="2">
+            <label class="fs-4 fw-light"> Vardas, pavardė: </label>
+            <label class="fs-3 fw-normal">{{ gyventojas.vpavarde }}</label>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <label class="fs-4 fw-light"> Gimimo diena: </label>
+            <label class="fs-3 fw-normal">{{ gyventojas.gim_data }}</label>
+        </th>
+        <th>
+            <label class="fs-4 fw-light">Lytis: </label>
+            <label class="fs-3 fw-normal">{{ gyventojas.lytis }}</label>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <label class="fs-4 fw-light"> Pristatymo data: </label>
+            <label class="fs-3 fw-normal">{{ gyventojas.pr_data }}</label>
+        </th>
+        <th>
+            <label class="fs-4 fw-light"> Kas pristatė: </label>
+            <label class="fs-3 fw-normal">{{ gyventojas.kas_pristate }}</label>
+
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <label class="fs-4 fw-light"> Religija: </label>
+            <label class="fs-3 fw-normal">{{ gyventojas.religija }}</label>
+        </td>
+        <td>
+            <label class="fs-4 fw-light"> Kalba: </label>
+            <label class="fs-3 fw-normal">{{ gyventojas.kalba }}</label>
+        </td>
+        <td rowspan="2">
+            <div class="form-group">
+                <label class="fs-4 fw-light"> Papildoma informacija: </label>
+
+                <textarea class="form-control" name="tekstas" rows="5">{{gyventojas.papildomai}}</textarea>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label class="fs-4 fw-light"> Maitinimas: </label>
+            <label class="fs-3 fw-normal">{{ gyventojas.maitinimas }}</label>
+        </td>
+        <td><label class="fs-4 fw-light"> Išvyko į: </label>
+            <label class="fs-3 fw-normal">{{ gyventojas.kur_isvyko }}</label>
+        </td>
+    </tr>
+
+</table>
+
+{% endblock %}

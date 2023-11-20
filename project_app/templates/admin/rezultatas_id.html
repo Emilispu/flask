@@ -1,0 +1,32 @@
+{% extends 'admin/templates/admin_template.html' %}
+{% block title %} URCIS - centro gyventojų registras  {% endblock %}
+
+{% block content %}
+
+<h1>Informacija apie gyventoją</h1>
+
+
+<h2>Bylos ID: {{ gyventojas.bylos_id }}</h2>
+<p>Vardas, pavardė: {{ gyventojas.vpavarde }}</p>
+<p>Lytis: {{ gyventojas.lytis }}</p>
+<p>Statusas: {{ gyventojas.statusas }}</p>
+
+
+{% if gyventojas.nuotrauka %}
+    <img src="/uploaded_file/{{ gyventojas.nuotrauka }}">
+{% else %}
+    {% if gyventojas.lytis == "Vyras" %}
+        <img src="/uploaded_file/male.jpg">
+    {% endif %}
+
+    {% if gyventojas.lytis == "Moteris" %}
+        <img src="/uploaded_file/female.jpg">
+    {% endif %}
+
+{% endif %}
+
+{% endblock %}
+
+</body>
+</html>
+
